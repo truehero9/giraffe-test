@@ -12,3 +12,27 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+
+.advert-main {
+  font-size: 1.2em;
+}
+
+.advert-description {
+  font-weight: inherit;
+  font-size: 1.2em;
+}
+
+.advert-author {
+  font-weight: bold;
+}
+
+.advert-edit-panel {
+  width: 100%;
+  padding: 15px;
+}
+
+.advert-pagination {
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+}

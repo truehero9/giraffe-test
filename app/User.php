@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'username', 'password',
     ];
 
     /**
@@ -24,6 +24,26 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password'
     ];
+
+    public static function create($username, $password)
+    {
+        $user = new self;
+        $user->username = $username;
+        $user->password = bcrypt($password);
+        $user->save();
+
+        return $user;
+    }
+
+    public static function exists($username) {
+        $user = self::where('username', $username)->first();
+        return $user;
+    }
+
+    public function advert()
+    {
+        return $this->hasMany(Advert::class, 'author_name', 'username');
+    }
 }
